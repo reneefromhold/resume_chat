@@ -1,0 +1,125 @@
+{
+	"roles": [
+		{
+			"title": "Senior Software Engineer",
+			"startDate": "11/01/2018",
+			"endDate": "03/25/2025",
+			"companyName": "Careevolution",
+			"companyOverview": "CareEvolution specializes in health data interoperability and digital research platforms. The platform is utilized by patients, providers, researchers, and public health organizations to improve health outcomes, streamline data exchange, and advance medical research. All roles at CareEvolution, a ~100-person flat organization, are highly autonomous.",
+			"city": "Ann Arbor",
+			"state": "MI",
+			"industry": "Healthcare",
+			"stack": ["React", "TypeScript", "Storybook", "Figma", "Github", "CraftJs", "AWS", "Lambda", "Recharts", "Vite", "Python", "Angular JS", "Lambda", "S3", "OpenAI", "Node", "C#", "Terraform", "Jest", "CI/CD", "Javascript", "Amplify", "Splunk", "Project Management"],
+			"summary": "At CareEvolution, I worked with high autonomy across cross-functional teams including researchers, designers, product, and clinicians—to define MVPs, build health tech products, and manage end-to-end development. I was a key contributor to MyDataHelpsUI, an open-source component library used to visualize patient and wearable data in clinical research contexts, and to ViewBuilder, a drag-and-drop interface enabling scalable study development. I also contributed to MyDataHelpsDesigner, the platform for configuring participant engagement and data collection in regulated studies.\n\nIn addition to building features, I led efforts to improve code quality and development speed—setting up CI/CD pipelines, test infrastructure, and automating workflows across multiple front-end projects using tools like Jest, Storybook, and GitHub Actions. I also introduced React component usage logging, which gave the team valuable insights for prioritizing UI improvements.\n\nI led small teams through the full development cycle of clinical research studies like PowerMom and helped maintain and extend internal systems. This included building ETL pipelines for health data standards like FHIR, HL7, and QRDA, and adding support for incremental versioning to our internal FHIR server. One of the more creative projects I worked on was an OpenAI-powered chatbot that could generate participant engagement views using components from our MDH UI library.",
+			"achievements": [
+				"With high autonomy, work closely with researchers, designers, product teams, and clinicians to build products, define MVPs, and manage expectations through end to end development.",
+				"Key contributor to the open-source front end component library MyDataHepsUI. These components are used to visualize patient health and wearable device data in the context of a clinical research study.",
+				"Key contributor to ViewBuilder. This drag and drop interface was designed to scale the development and engagement of clinical research studies using the MDH UI component library.",
+				"Key contributor to MyDataHelpsDesigner. This is where research coordinators configure participant engagement, data capture, and export data for highly regulated research studies.",
+				"Conduct PR reviews, and mentor developers",
+				"Advocated for and implemented component usage logging in React to enable data-driven product decisions and prioritize UI investments.",
+				"Designed and created the testing infrastructure for multiple front end repositories using Jest. This included rallying developers around creating comprehensive unit tests.",
+				"Designed and created CI/CD workflows across multiple codebases by integrating typescript compilation, roll-up, Jest, Storybook testing, and alerts  into GitHub Actions.",
+				"Prior to MDH UI studies were built from the ground up. I led small teams through the end to end development of multiple clinical research studies, such as PowerMom.",
+				"Notable Hackathon was creating a Chatbot using OpenAI. On discussion, the chatbot would create a view for participant engagement based on components in MDH UI",
+				"Create/maintain ETL scripts, services, and tooling for a variety of health related data ranging from public health terminology to patient level data. Formats include but are not limited to NowPow, HL7, FHIR, CQL, and QRDA",
+				"Extended the internal FHIR Server to support incremental verisons"
+
+			],
+			"roleType": "FullTime"
+		},
+		{
+			"title": "Senior Software Engineer",
+			"startDate": "10/01/2011",
+			"endDate": "11/01/2018",
+			"companyName": "Flatiron Health (Prev Altos Solutions)",
+			"companyOverview": "Flatiron Health is a healthcare technology firm focused on oncology, providing electronic health records, real-world data analytics, and clinical trial solutions to enhance patient care and support drug development. In May 2014, as part of its $130 million Series B round led by Google Ventures, Flatiron acquired Altos Solutions—developer of the cloud-based OncoEMR system—integrating point-of-care data capture into its OncologyCloud platform to create one of the largest structured oncology data ecosystems. Acquired by Roche in 2018, Flatiron now leverages this enriched data foundation to power clinical decision-making and regulatory-grade real-world evidence.",
+			"city": "New York",
+			"state": "NY",
+			"industry": "Healthcare",
+			"stack": ["React", "Javascript", "Microsoft SQL", "Github", "AWS", "Python", "C#", "VB.NET", "Redux", "Splunk", "New Relic", "EHR", "ASP.NET", "Project Management"],
+			"summary": "At Flatiron Health, I was a full stack engineer working on an oncology specific, cloud-based Electronic Health Records product. One of my key contributions to OncoEMR prior to its aquisition by Flatiron was writing a Clinical Quality Measure reporting system, and helping get the product certified for Meaningful Use. This involved learning underlying medical terminologies and the overarching goals of how and why health systems share information. \n\nPost acquisition, I continued to work across the stack with focus on modernizing the staging interface and supporting new and evolving terminologies. I also helped scope projects and led agile team ceremonies like daily stand-ups and sprint planning. Part of my job was refactoring older legacy code into modern, maintainable micro services systems that better supported physician workflows. Beyond coding, I was active in the engineering culture, organizing bootcamps, hackathons, and our annual engineering summit.",
+			"achievements": [
+				"Full stack engineer specialized in healthcare interoperability and Meaningful Use compliance for the cloud based Electronic Health Records (EHR) product.",
+				"Backend development using Python, VB.NET, ASP.NET, C#, and SQL.",
+				"Front end development using javascript, jQuery, react, react/redux, ES6.",
+				"Scoped projects for agile team development using JIRA.", 
+				"Experience leading scrum ceremonies such as daily stand up, grooming, and demo/retro.",
+				"Refactored legacy code to use modern front ends, service layers, and supportive technologies. ",
+				"Created business objects, data access layers, and services that translate, codify, store, and retrieve patient level medical data.",
+				"Completed all projects with attention to detail on improving physician workflows, and producing high quality code.",
+				"Active role in Engineering Culture Club where projects ranged from leading bootcamps, organizing company hackathons, and organizing annual Engineering Summits."
+			],
+			"roleType": "FullTime"
+		},
+		{
+			"title": "Independent Contractor (.NET)",
+			"startDate": "10/01/2010",
+			"endDate": "5/01/2011",
+			"companyName": "MaximTrak Technologies",
+			"companyOverview": "RouteOne was formed in 2002 by Ally Financial, Ford Motor Credit Company, TD Auto Finance, and Toyota Financial Services to improve the F&I process for automobile dealers and their customers. Connecting thousands of dealers and finance sources in North America for vehicle financing, RouteOne’s platform delivers a comprehensive suite of F&I solutions across multiple channels: in-store, online, mobile, and via third-party solutions. Its flagship products include credit applications, eContracting, compliance, and online/mobile retail services. In addition, RouteOne enables dealer choice across a wide variety of best-in-class providers through open integrations with over 200+ DSPs.",
+			"city": "Wayne",
+			"state": "PA",
+			"industry": "Healthcare",
+			"stack": ["ASP.NET", "VB.NET", "C#", "JQuery", "AJAX", "Microsoft SQL", "Javascript", "Project Management"],
+			"summary": "",
+			"achievements": [
+				"Designed and enhanced web based application and services for Automotive F&I software using a combination of ASP.NET (VB and C#), AJAX, JQuery, and SQL.",
+				"Worked closely with in house staff, and external vendors in translating user needs into technical designs. This process concluded with documented technical specifications, database design, and end user guides.",
+				"Performed above mentioned duties under limited guidance, and aggressive deadlines."
+			],
+			"roleType": "FullTime"
+		},
+		{
+			"title": "IS Supervisor",
+			"startDate": "10/01/2009",
+			"endDate": "8/01/2010",
+			"companyName": "McBee Associates",
+			"companyOverview": "McBee Associates is a healthcare consulting firm based in Wayne, PA, specializing in strategic advisory services across financial, clinical, and operational domains for the post-acute and acute care sectors under the Netsmart umbrella. They offer expertise in areas such as revenue cycle management, coding compliance (including OASIS/MDS), nurse chart review, billing and cash collections, bundled payments, and education/training services.",
+			"city": "Wayne",
+			"state": "PA",
+			"industry": "Healthcare",
+			"stack": ["ASP.NET", "VB.NET", "C#", "SSRS", "AJAX", "Microsoft SQL", "Javascript", "Project Management", "MS Access"],
+			"summary": "",
+			"achievements": [
+				"Primary focus was re-designing the MS Access based CRM and timekeeping system for migration to web based application.This was done using Viso, SQL, and .NET. In addition to the interface, a data migration plan using SQL was a large part of this project.",
+				"Supported and enhanced existing standard and subscription based reports using SSRS.",
+				"Designed and implemented a Revenue Management system using SQL, ASP.NET, and AJAX.",
+				"Designed and implemented web based interface to CMS Healthcare cost report data",
+				"Created project scope documentation, including user stories, for all projects. ",
+				"Create technical specifications, database design, and end user documentation for all assigned projects.",
+				"Mentored junior programmer on ASP.NET 3.5.",
+				"Mentored business analyst on how to translate business specifications to technical concepts."
+			],
+			"roleType": "FullTime"
+		},
+		{
+			"title": "Software Engineer",
+			"startDate": "10/01/2003",
+			"endDate": "10/10/2009",
+			"companyName": "DCCS/Positek",
+			"companyOverview": "DCCS/Positek RFID was a specialist in RFID-based textile and linen management, designing and deploying end-to-end systems that use UHF RFID tags, readers, antennas, and custom software to streamline processes like sorting, tracking, inventory, and loss reduction. Dry Cleaning Computer System was a point of sale software that served the personal laundering industry",
+			"city": "Norristown",
+			"state": "PA",
+			"industry": "Inventory Management",
+			"stack": ["ASP.NET", "VB.NET", "VB6", "Microsoft SQL", "Project Management", "InstallShield", "Crystal Reports"],
+			"summary": "",
+			"achievements": [
+				"Lead developer for Client/Server RFID Inventory Tracking system",
+				"Full life cycle developer for Client/Server Point of Sale and Accounts Receivable software",
+				"Lead migration of existing VB6 Point of Sale System to a Vista/SQL 2008 compatible VB.NET application.",
+				"Lead database developer for RFID Inventory Tracking System and Point of Sale system using SQL versions 2000, 2005, and 2008.",
+				"Lead developer for preparing, testing, and designing installation packages",
+				"Created functional and developer specifications",
+				"Managed short term consultants, and QA staff ",
+				"Established procedures for preparing new revisions, testing, and improving overall customer support standards.",
+				"Visual Source Safe Administrator",
+				"Managed the recruitment process for new hires and consultants.",
+				"Represented R&D at user group conferences and trade shows.",
+				"Performed off site installations, product demonstrations, and training for customer support.",
+				"Mentored colleagues and in VB, VB.NET, SQL, Install Shield, and Crystal Reports."
+			],
+			"roleType": "FullTime"
+		}
+	]
+}
