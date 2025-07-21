@@ -1,0 +1,3 @@
+.chat-bubble-user { background: #667eea; }
+.chat-bubble-bot { background: #f1f5f9; }
+.typing-indicator { animation: pulse 1.5s ease-in-out infinite; }

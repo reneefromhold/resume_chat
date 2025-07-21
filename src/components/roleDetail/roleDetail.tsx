@@ -12,20 +12,21 @@ export default function RoleDetail( props: { role: Role}){
         const dt = new Date(strDate);
         console.log(dt);
         const formattedDate = dt.toLocaleDateString('en-US',
-                { year: 'numeric', month: 'long' });
+                { year: 'numeric', month: 'short' });
         return formattedDate;
     }    
 
     return (
-        <section className="bg-zinc-100 rounded-2xl shadow-md px-4 py-6 sm:px-6 sm:py-8 max-w-full sm:max-w-2xl mx-auto space-y-4 sm:space-y-6">
+        // <section className="bg-zinc-100 rounded-2xl shadow-md px-4 py-6 sm:px-6 sm:py-8 max-w-full sm:max-w-2xl mx-auto space-y-4 sm:space-y-6">
+        <div className="bg-white rounded-lg shadow-md p-8">
             <div>
                 <h2 className="text-2xl font-semibold text-slate-600">{props.role.title}</h2>
-                <p className="text-sm text-slate-700 mb-[5px]">{formattedDuration}</p>
+                <p className="text-md text-slate-700 mb-[5px]">{formattedDuration}</p>
                 <>
                     {props.role.summary.split('\n\n').map((pd, idx) => 
                         <p className="text-gray-600 text-md mb-4" key={`sum${idx}`}>{pd}</p>)}
                 </>
             </div>
-        </section>
+        </div>
     );
 }

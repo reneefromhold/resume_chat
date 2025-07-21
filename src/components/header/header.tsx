@@ -1,37 +1,23 @@
-'use client';
 
-import { useState } from "react";
+
+import "./header.css";
 
 export default function Header(){
-    const [question, setQuestion] = useState<string>("");
-    const [showQuestion, setShowQuestion] = useState<boolean>(true);
-    const [response, setResponse] = useState<string>("");
-
-    const askMeAnything = () =>{
-
-    }
-
-    const submitQuestion = async () => {
-
-        if (question === ""){
-            return;
-        }
-
-        const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/openai`;
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: question })
-        });
-        const data = await response.json();
-        console.log(`answer is ${data}`);
-        setResponse(data);
-    }
-
     return (
+        <div className="gradient-bg text-white py-10">
+            <div className="container mx-auto px-6 text-center ">
+                <div className="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-gray-800">
+                    RF
+                </div>
+                <h1 className="text-3xl font-bold mb-4">Renee Fromhold</h1>
+                <p className="text-xl ">Senior Full-Stack Software Engineer</p>
+                <p className="text-xl mb-3">Drawn to meaningful work and making an impact</p>
+                <p className="text-lg opacity-90 max-w-2xl mx-auto">Welcome to my page 👋</p>
+            </div>
+        </div>
+/* 
         <div className="bg-white py-10 text-center">
             <h1 className="text-4xl font-bold text-slate-900 mb-4"><span className="bg-clip-text">Hi, I'm Renee</span>  👋</h1>
-            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Hi, I'm Renee</span> */}
             <p className="text-lg text-gray-600 mb-6">I am senior full-stack engineer with a bias for building with purpose.</p>
             <div className="space-x-4">
                 <a href="/resume.pdf" className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">📄 View Resume</a>
@@ -45,6 +31,8 @@ export default function Header(){
                 </div>
             }
             {response && <div>{response}</div>}
-        </div>
+        </div> */
     )
 };
+
+{/* <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Hi, I'm Renee</span> */}

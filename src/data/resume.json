@@ -62,7 +62,7 @@
 			"state": "PA",
 			"industry": "Healthcare",
 			"stack": ["ASP.NET", "VB.NET", "C#", "JQuery", "AJAX", "Microsoft SQL", "Javascript", "Project Management"],
-			"summary": "",
+			"summary": "In this contract role, I worked closely with the engineering team to design and enhance web based applications and services for Automotive F&I software using a combination of ASP.NET (VB and C#), AJAX, JQuery, and SQL. This included working closely with in house staff, and external vendors in translating user needs into technical designs.",
 			"achievements": [
 				"Designed and enhanced web based application and services for Automotive F&I software using a combination of ASP.NET (VB and C#), AJAX, JQuery, and SQL.",
 				"Worked closely with in house staff, and external vendors in translating user needs into technical designs. This process concluded with documented technical specifications, database design, and end user guides.",
@@ -80,7 +80,7 @@
 			"state": "PA",
 			"industry": "Healthcare",
 			"stack": ["ASP.NET", "VB.NET", "C#", "SSRS", "AJAX", "Microsoft SQL", "Javascript", "Project Management", "MS Access"],
-			"summary": "",
+			"summary": "Led the re-design and implementation of various, internal MS Access based desktop applicaitons to web/.NET based interfaces. Projects included a Revenue Management, CRM and timekeeping system, along with an interface to CMS's cost report.",
 			"achievements": [
 				"Primary focus was re-designing the MS Access based CRM and timekeeping system for migration to web based application.This was done using Viso, SQL, and .NET. In addition to the interface, a data migration plan using SQL was a large part of this project.",
 				"Supported and enhanced existing standard and subscription based reports using SSRS.",
@@ -103,7 +103,7 @@
 			"state": "PA",
 			"industry": "Inventory Management",
 			"stack": ["ASP.NET", "VB.NET", "VB6", "Microsoft SQL", "Project Management", "InstallShield", "Crystal Reports"],
-			"summary": "",
+			"summary": "Led development across two core products: a client/server RFID inventory tracking system for industrial launderers, and a point-of-sale and accounts receivable system for dry cleaners. Oversaw full software lifecycle from architecture and database design (SQL 2000–2008) to VB.NET migration and deployment. Managed QA, consultants, and hiring efforts, created functional specs, and established testing and support procedures. Acted as Visual SourceSafe admin, delivered on-site installations and trainings, and represented R&D at industry events.",
 			"achievements": [
 				"Lead developer for Client/Server RFID Inventory Tracking system",
 				"Full life cycle developer for Client/Server Point of Sale and Accounts Receivable software",
@@ -120,6 +120,16 @@
 				"Mentored colleagues and in VB, VB.NET, SQL, Install Shield, and Crystal Reports."
 			],
 			"roleType": "FullTime"
+		}
+	],
+	"sideProjects": [
+		{
+			"name": "Web Admin",
+			"url": "https://hfscyo.com"
+		},
+		{
+			"name": "Founding Member",
+			"url": "https://howican.tech/"
 		}
 	]
 }
