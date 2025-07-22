@@ -1,28 +1,34 @@
 'use client';
-import {useEffect, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import "./chatbot.css";
 import React from "react";
 
-export default function Chatbot(){
+export default function Chatbot() {
     const [chatOpen, setChatOpen] = useState<Boolean>(false);
     const [question, setQuestion] = useState<string>("");
     const [response, setResponse] = useState<React.ReactNode[]>([]);
+    const endRef = useRef<HTMLDivElement>(null);
 
-    const thinkingKey : string = `thnk${Date.now()}`;
+    const thinkingKey: string = `thnk${Date.now()}`;
     const thinkingMessage: React.ReactNode = (
         <div key={thinkingKey}
-        className="chat-bubble-bot text-gray-500 p-3 rounded-lg max-w-xs"
+            className="chat-bubble-bot text-gray-500 p-3 rounded-lg max-w-xs"
         >
-        ...
+            ...
         </div>
     );
 
-    useEffect( ()=>{
+    useEffect(() => {
         const defaultChat = [<div key="c1" className="chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs">
             Hi! I'm Renee's AI assistant. Ask me anything about her experience, skills, or side projects!
         </div>];
         setResponse(defaultChat);
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        endRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [response]);
+
 
     const toggleChat = () => {
         const changeChatOpenTo = !chatOpen;
@@ -36,13 +42,13 @@ export default function Chatbot(){
     }
 
     const submitQuestion = async () => {
-        if (question === ""){
+        if (question === "") {
             return;
         }
 
         const useQuestion = question;
         setQuestion('');
-        const userMessage : React.ReactNode = <div key={`cu${response.length + 1}`} className = 'chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{question}</div>;
+        const userMessage: React.ReactNode = <div key={`cu${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{question}</div>;
         setResponse(prev => [...prev, userMessage, thinkingMessage]);
 
         const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/openai`;
@@ -52,10 +58,15 @@ export default function Chatbot(){
             body: JSON.stringify({ prompt: useQuestion })
         }).then(response => response.json()
         ).then(data => {
-            const openAIResponse : React.ReactNode = <div key={`oair${response.length + 1}`} className = 'chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>{data}</div>;
-            setResponse(prev => 
+            const responseText: string = data.tool ? 'Resume downloaded' : data.message;
+            const responseNode: React.ReactNode = <div key={`oair${response.length + 1}`} className='chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>{responseText}</div>;
+            if (data.tool){
+                window.open("/resume.pdf", '_blank');
+            } 
+            
+            setResponse(prev =>
                 prev.map((node) =>
-                    React.isValidElement(node) && node.key === thinkingKey ? openAIResponse : node
+                    React.isValidElement(node) && node.key === thinkingKey ? responseNode : node
                 )
             );
         });
@@ -67,26 +78,27 @@ export default function Chatbot(){
             {chatOpen && <span className="text-2xl">✕</span>}
         </button>
 
-        {chatOpen && 
-        <div className="absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl border">
-            <div className="bg-blue-600 text-white p-4 rounded-t-lg">
-                <div className="flex justify-between items-center">
-                    <h3 className="font-semibold">Ask me anything!</h3>
-                    <button onClick={toggleChat} className="text-white hover:text-gray-200">✕</button>
+        {chatOpen &&
+            <div className="absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl border">
+                <div className="bg-blue-600 text-white p-4 rounded-t-lg">
+                    <div className="flex justify-between items-center">
+                        <h3 className="font-semibold">Ask me anything!</h3>
+                        <button onClick={toggleChat} className="text-white hover:text-gray-200">✕</button>
+                    </div>
+                </div>
+
+                <div className="overflow-y-auto p-4 space-y-3 max-h-[80vh]">
+                    {response}
+                    <div ref={endRef} />
+                </div>
+
+                <div className="p-4 border-t">
+                    <div className="flex space-x-2">
+                        <input value={question} onChange={(e) => { setQuestion(e.target.value) }} type="text" placeholder="Type your question..." className="flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onKeyPress={handleChatKeyPress}></input>
+                        <button onClick={submitQuestion} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Send</button>
+                    </div>
                 </div>
             </div>
-            
-            <div className="overflow-y-auto p-4 space-y-3 max-h-[80vh]">
-                {response}
-            </div>
-            
-            <div className="p-4 border-t">
-                <div className="flex space-x-2">
-                    <input value={question} onChange={(e) => {setQuestion(e.target.value)}} type="text" placeholder="Type your question..." className="flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onKeyPress={handleChatKeyPress}></input>
-                    <button onClick={submitQuestion} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Send</button>
-                </div>
-            </div>
-        </div>
         }
     </div>);
 }

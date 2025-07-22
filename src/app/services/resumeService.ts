@@ -1,4 +1,16 @@
+import { json } from "stream/consumers";
+
 export type roleType = "FullTime" | "Volunteer";
+
+export interface Profile {
+    languages: string[],
+    frameworks: string[],
+    dev: string[], 
+    infrastructure: string[],
+    ai : string[],
+	interests : string[],
+    roles: Role[]
+}
 
 export interface Role {
     title: string,
@@ -17,16 +29,19 @@ export interface Role {
     github?: string
 }
 
-export function loadRoles(type : roleType) : Promise<Role[]> {
+export function loadProfile() : Promise<Profile> {
 
     return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/resume`, { cache: 'no-store' }).then(response => {
         return response.json();
     }).then((jsonData) => {
-        let roles = jsonData.roles;
-        if (roles.length <= 0) {
-            return [];
-        }
-
-        return roles.filter((r: Role) => r.roleType === type);
+        return {
+            languages: jsonData.languages,
+            frameworks: jsonData.frameworks,
+            dev: jsonData.dev,
+            infrastructure: jsonData.infrastructure,
+            ai : jsonData.ai,
+            interests : jsonData.interests,
+            roles : jsonData.roles.length <= 0 ? [] : jsonData.roles
+        };
     });
 }

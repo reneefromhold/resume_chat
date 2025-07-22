@@ -1,9 +1,16 @@
 {
+	"thisWebsite": "This website was built July 2025 using NextJS, TypeScript, OpenAI, and Tailwind.",
+	"languages" :  ["JavaScript", "TypeScript", "Python", "C#", "VB.NET", "VB6", "SQL (Microsoft SQL)"],
+	"frameworks" : ["React", "Redux", "AngularJS", "ASP.NET", "JQuery", "AJAX", "Craft.js", "Recharts", "Node.js"],
+	"dev": ["Storybook", "Figma", "Vite", "Github", "InstallShield", "Jest", "CI/CD"],
+	"infrastructure": ["AWS Lambda", "S3", "Amplify", "Terraform"],
+	"ai" : ["OpenAI"],
+	"interests": ["AI Tooling", "Open Source", "Full Stack", "Running", "Coaching"],
 	"roles": [
 		{
 			"title": "Senior Software Engineer",
 			"startDate": "11/01/2018",
-			"endDate": "03/25/2025",
+			"endDate": "04/01/2025",
 			"companyName": "Careevolution",
 			"companyOverview": "CareEvolution specializes in health data interoperability and digital research platforms. The platform is utilized by patients, providers, researchers, and public health organizations to improve health outcomes, streamline data exchange, and advance medical research. All roles at CareEvolution, a ~100-person flat organization, are highly autonomous.",
 			"city": "Ann Arbor",
@@ -130,6 +137,41 @@
 		{
 			"name": "Founding Member",
 			"url": "https://howican.tech/"
+		}
+	],
+	"education": [
+		{
+			"school" : "Villanova University",
+			"major": "Information Systems Management",
+			"degree": ""
+		},
+		{
+			"school" : "Montgomery County Commuinity College",
+			"major": "Business Administration",
+			"degree": "Associates"
+		},
+		{
+			"school" : "Chubb Systems",
+			"major": "Computer Programming",
+			"degree": "Certificate"
+		}
+	],
+	"certifications": [
+		{
+			"name": "Programming in Python",
+			"provider": "Meta (Coursera)",
+			"year": "4/1/2025"
+		},
+		{
+			"name": "Certified Scrum Master",
+			"year": "1/1/2018",
+			"provider": "Scrum Alliance"
+		},
+		{
+			"name": "MCP 70-176 Designing and Implementing Desktop Applications with Microsoft Visual Basic 6.0",
+			"year": "11/1/2002",
+			"provider": "Microsoft"
+
 		}
 	]
 }
