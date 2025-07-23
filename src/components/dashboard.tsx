@@ -1,5 +1,4 @@
-import { ReactNode, } from "react";
-import { Role, loadProfile } from "../app/services/resumeService";
+import { loadProfile } from "../app/services/resumeService";
 import React from "react";
 import RoleDetail from "./roleDetail/roleDetail";
 import EducationDetail from "./educationDetail/educationDetail";

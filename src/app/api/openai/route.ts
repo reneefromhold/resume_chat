@@ -82,6 +82,8 @@ function formatResume() {
     const certifications = `Certifications ${data.certifications.map(c =>
         `Earned a ${c.name} from ${c.provider} in ${c.year}`)}`;
 
-    return `${education} ${certifications} ${roles}`;
+    const interests = `Interests and hobbies include ${data.interests}`;
+
+    return `${interests} ${education} ${certifications} ${roles}`;
 }
 

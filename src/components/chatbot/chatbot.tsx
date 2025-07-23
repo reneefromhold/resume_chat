@@ -4,7 +4,7 @@ import "./chatbot.css";
 import React from "react";
 
 export default function Chatbot() {
-    const [chatOpen, setChatOpen] = useState<Boolean>(false);
+    const [chatOpen, setChatOpen] = useState<boolean>(false);
     const [question, setQuestion] = useState<string>("");
     const [response, setResponse] = useState<React.ReactNode[]>([]);
     const endRef = useRef<HTMLDivElement>(null);
@@ -19,8 +19,8 @@ export default function Chatbot() {
     );
 
     useEffect(() => {
-        const defaultChat = [<div key="c1" className="chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs">
-            Hi! I'm Renee's AI assistant. Ask me anything about her experience, skills, or side projects!
+        const defaultChat = [<div key='c1' className='chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>
+            Hi! I&apos;m Renee&apos;s AI assistant. Ask me anything about her experience, skills, or side projects!
         </div>];
         setResponse(defaultChat);
     }, []);
