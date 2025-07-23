@@ -2,6 +2,8 @@ import { ReactNode, } from "react";
 import { Role, loadProfile } from "../app/services/resumeService";
 import React from "react";
 import RoleDetail from "./roleDetail/roleDetail";
+import EducationDetail from "./educationDetail/educationDetail";
+import CertificationDetail from "./certificationDetail/certificationDetail";
 
 export default async function Dashboard() {
     const profile = await loadProfile();
@@ -56,14 +58,35 @@ export default async function Dashboard() {
                 </div>
             </div>            
         </div>
-        <div className="mt-6">
-            <h2 className="text-3xl text-slate-800 text-center font-semibold">Experience</h2>
-            <div className="max-w-4xl mx-auto space-y-8">
+        <div className="mt-8">
+            <h2 className="text-3xl text-slate-800 text-center font-semibold">Work Experience</h2>
+            <div className="max-w-4xl mx-auto space-y-4">
                  {roles.map((r, index) => (
                     <RoleDetail key={`rd_${index}`} role={r} />
                 ))}
             </div>
         </div>
+        <div className="mt-8">
+            <h2 className="text-3xl text-slate-800 text-center font-semibold">Education</h2>
+            <div className="max-w-4xl mx-auto space-y-4">
+                <div className="bg-white rounded-lg shadow-md p-8">
+                    {profile.education.map((edu, index) => (
+                        <EducationDetail key={`edu_${index}`} education={edu} />
+                    ))}
+                </div>
+            </div>
+        </div>
+        <div className="mt-8">
+            <h2 className="text-3xl text-slate-800 text-center font-semibold">Certifications</h2>
+            <div className="max-w-4xl mx-auto space-y-4">
+                <div className="bg-white rounded-lg shadow-md p-8">
+                    {profile.certifications.map((cert, index) => (
+                        <CertificationDetail key={`cert_${index}`} certification={cert} />
+                    ))}
+                </div>
+            </div>
+        </div>
+        
         </>
     )
 };

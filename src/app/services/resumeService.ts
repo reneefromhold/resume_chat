@@ -9,7 +9,9 @@ export interface Profile {
     infrastructure: string[],
     ai : string[],
 	interests : string[],
-    roles: Role[]
+    education: Education[],
+    roles: Role[],
+    certifications: Certification[]
 }
 
 export interface Role {
@@ -29,6 +31,18 @@ export interface Role {
     github?: string
 }
 
+export interface Education {
+    school: string,
+    major : string,
+    degree: string
+}
+
+export interface Certification {
+    name: string,
+    provider: string,
+    year: string
+}
+
 export function loadProfile() : Promise<Profile> {
 
     return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/resume`, { cache: 'no-store' }).then(response => {
@@ -41,7 +55,9 @@ export function loadProfile() : Promise<Profile> {
             infrastructure: jsonData.infrastructure,
             ai : jsonData.ai,
             interests : jsonData.interests,
-            roles : jsonData.roles.length <= 0 ? [] : jsonData.roles
+            education: jsonData.education,
+            roles : jsonData.roles.length <= 0 ? [] : jsonData.roles,
+            certifications: jsonData.certifications
         };
     });
 }

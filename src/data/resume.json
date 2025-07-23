@@ -5,7 +5,7 @@
 	"dev": ["Storybook", "Figma", "Vite", "Github", "InstallShield", "Jest", "CI/CD"],
 	"infrastructure": ["AWS Lambda", "S3", "Amplify", "Terraform"],
 	"ai" : ["OpenAI"],
-	"interests": ["AI Tooling", "Open Source", "Full Stack", "Running", "Coaching"],
+	"interests": ["AI Tooling", "Open Source", "Full Stack", "Running", "Youth Sports Volunteer"],
 	"roles": [
 		{
 			"title": "Senior Software Engineer",
