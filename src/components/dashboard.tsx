@@ -68,7 +68,7 @@ export default async function Dashboard() {
         <div className="mt-8">
             <h2 className="text-3xl text-slate-800 text-center font-semibold">Education</h2>
             <div className="max-w-4xl mx-auto space-y-4 mt-5">
-                <div className="bg-white dark:bg-gray-900 text-black dark:text-white rounded-lg shadow-md p-8">
+                <div className="bg-white text-black rounded-lg shadow-md p-8">
                     {profile.education.map((edu, index) => (
                         <EducationDetail key={`edu_${index}`} education={edu} />
                     ))}
@@ -78,8 +78,7 @@ export default async function Dashboard() {
         <div className="mt-8">
             <h2 className="text-3xl text-slate-800 text-center font-semibold">Certifications</h2>
             <div className="max-w-4xl mx-auto space-y-4 mt-5">
-                {/* <div className="bg-white rounded-lg shadow-md p-8"> */}
-                <div className="bg-white dark:bg-gray-900 text-black dark:text-white rounded-lg shadow-md p-8">
+                <div className="bg-white text-black rounded-lg shadow-md p-8">
                     {profile.certifications.map((cert, index) => (
                         <CertificationDetail key={`cert_${index}`} certification={cert} />
                     ))}
