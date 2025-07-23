@@ -13,7 +13,7 @@ export default function Header(){
                 <p className="text-xl ">Senior Full-Stack Software Engineer</p>
                 <p className="text-xl mb-3">Drawn to meaningful work and making an impact</p>
                 <p className="text-lg opacity-90 max-w-2xl mx-auto">Welcome to my page 👋</p>
-                <p className="text-lg opacity-90 max-w-2xl mx-auto">For a copy of my resume, just ask my ChatBot</p>
+                {/* <p className="text-lg opacity-90 max-w-2xl mx-auto">For a copy of my resume, just ask my ChatBot</p> */}
             </div>
         </div>
     )
