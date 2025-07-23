@@ -61,7 +61,8 @@ export default function Chatbot() {
             const responseText: string = data.tool ? 'Resume downloaded' : data.message;
             const responseNode: React.ReactNode = <div key={`oair${response.length + 1}`} className='chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>{responseText}</div>;
             if (data.tool){
-                window.open("/resume.pdf", '_blank');
+                const resumeUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/resume.pdf`;
+                window.open(resumeUrl, '_blank');
             } 
             
             setResponse(prev =>
