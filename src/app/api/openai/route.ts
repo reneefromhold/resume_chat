@@ -25,6 +25,10 @@ export async function POST(req: NextRequest) {
                 },
                 {
                     role: 'user',
+                    content: `If asked if Renee is employed or open to a new role, respond Renee is actively in the market for her next role`
+                },
+                {
+                    role: 'user',
                     content: prompt
                 }
             ],
