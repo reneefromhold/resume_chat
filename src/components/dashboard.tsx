@@ -7,6 +7,7 @@ import CertificationDetail from "./certificationDetail/certificationDetail";
 export default async function Dashboard() {
     const profile = await loadProfile();
     const roles = profile.roles;
+    const resumeUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/resume.pdf`;
 
     function getRandomBadgeClass(): string {
         const classes = [
@@ -24,14 +25,14 @@ export default async function Dashboard() {
 
     const renderCollection = (title: string, collection: string[], keyPrefix: string) => {
         return (
-            <>
-                <h3 className="font-semibold text-gray-800 mb-3">{title}</h3>
+            <div className="mt-3">
+                <h3 className="font-semibold text-gray-800 mb-2">{title}</h3>
                 <div className="flex flex-wrap gap-2">
                     {collection.map((l : string, index : number) => 
                         <span key={`${keyPrefix}${index}`} className={getRandomBadgeClass()}>{l}</span>
                     )}
                 </div>
-            </>
+            </div>
         );
     }
     
@@ -45,6 +46,7 @@ export default async function Dashboard() {
                     <div className="space-y-2 text-gray-600">
                         <p><a href="mailto: reneefromhold@gmail.com">📧 reneefromhold@gmail.com</a></p>
                         <p>📍 Phoenixville, PA</p>
+                        <p><a href={resumeUrl}>📄 Download Resume</a></p>
                         <p><a href="https://www.linkedin.com/in/reneefromhold/">💼 linkedin.com/in/reneefromhold</a></p>
                         <p><a href="https://github.com/reneefromhold">🐙 github.com/reneefromhold</a></p>
                     </div>

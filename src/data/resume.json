@@ -1,5 +1,5 @@
 {
-	"thisWebsite": "This website was built July 2025 using NextJS, TypeScript, OpenAI, and Tailwind.",
+	"thisWebsite": "This website was built July 2025 using NextJS, TypeScript, OpenAI, and Tailwind. It is deployed with Vercel",
 	"languages" :  ["JavaScript", "TypeScript", "Python", "C#", "VB.NET", "VB6", "SQL (Microsoft SQL)"],
 	"frameworks" : ["React", "Redux", "AngularJS", "ASP.NET", "JQuery", "AJAX", "Craft.js", "Recharts", "Node.js"],
 	"dev": ["Storybook", "Figma", "Vite", "Github", "InstallShield", "Jest", "CI/CD"],
@@ -131,7 +131,7 @@
 	],
 	"sideProjects": [
 		{
-			"name": "Web Admin",
+			"name": "Board Vice President, Coach",
 			"url": "https://hfscyo.com"
 		},
 		{
