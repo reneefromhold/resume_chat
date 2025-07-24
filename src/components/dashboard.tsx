@@ -40,7 +40,7 @@ export default async function Dashboard() {
     return (
         <>
         <div className="mt-4 ">
-            <div className="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-auto flex flex-col md:flex-row gap-6 justify-between w-full">
+            <div className="bg-white rounded-lg shadow-md p-8 max-w-4xl mx-4 md:mx-auto flex flex-col md:flex-row gap-6 justify-between">
                 <div className="whitespace-nowrap flex flex-col gap-1">
                     <h3 className="font-semibold text-gray-800 mb-3">Contact Information</h3>
                     <div className="space-y-2 text-gray-600">
@@ -69,7 +69,7 @@ export default async function Dashboard() {
         </div>
         <div className="mt-8">
             <h2 className="text-3xl text-slate-800 text-center font-semibold">Education</h2>
-            <div className="max-w-4xl mx-auto space-y-4 mt-5">
+            <div className="max-w-4xl mx-4 md:mx-auto space-y-4 mt-5">
                 <div className="bg-white text-black rounded-lg shadow-md p-8">
                     {profile.education.map((edu, index) => (
                         <EducationDetail key={`edu_${index}`} education={edu} />
@@ -79,7 +79,7 @@ export default async function Dashboard() {
         </div>
         <div className="mt-8">
             <h2 className="text-3xl text-slate-800 text-center font-semibold">Certifications</h2>
-            <div className="max-w-4xl mx-auto space-y-4 mt-5">
+            <div className="max-w-4xl mx-4 md:mx-auto space-y-4 mt-5">
                 <div className="bg-white text-black rounded-lg shadow-md p-8">
                     {profile.certifications.map((cert, index) => (
                         <CertificationDetail key={`cert_${index}`} certification={cert} />

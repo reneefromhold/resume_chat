@@ -14,7 +14,7 @@ export default function RoleDetail( props: { role: Role}){
     }    
 
     return (
-        <div className="bg-white rounded-lg shadow-md p-8">
+        <div className="bg-white rounded-lg shadow-md p-8 mx-4 md:mx-auto">
             <div>
                 <h2 className="text-2xl font-semibold text-slate-600">{props.role.title}</h2>
                 <p className="text-md text-slate-700 mb-[5px]">{formattedDuration}</p>
