@@ -87,7 +87,7 @@
 			"state": "PA",
 			"industry": "Healthcare",
 			"stack": ["ASP.NET", "VB.NET", "C#", "SSRS", "AJAX", "Microsoft SQL", "Javascript", "Project Management", "MS Access"],
-			"summary": "Led the re-design and implementation of various, internal MS Access based desktop applicaitons to web/.NET based interfaces. Projects included a Revenue Management, CRM and timekeeping system, along with an interface to CMS's cost report.",
+			"summary": "Led the re-design and implementation of various, internal MS Access based desktop applications to web/.NET based interfaces. Projects included a Revenue Management, CRM and timekeeping system, along with an interface to CMS's cost report.",
 			"achievements": [
 				"Primary focus was re-designing the MS Access based CRM and timekeeping system for migration to web based application.This was done using Viso, SQL, and .NET. In addition to the interface, a data migration plan using SQL was a large part of this project.",
 				"Supported and enhanced existing standard and subscription based reports using SSRS.",
