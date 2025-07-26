@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./chatbot.css";
 import React from "react";
+import DOMPurify from 'dompurify';
 
 export default function Chatbot() {
     const [chatOpen, setChatOpen] = useState<boolean>(false);
@@ -41,12 +42,23 @@ export default function Chatbot() {
         }
     }
 
+    function isInputSafe(input : string) {
+        const cleaned = DOMPurify.sanitize(input);
+        return cleaned === input;
+    }
+
     const submitQuestion = async () => {
         if (question === "") {
             return;
         }
 
-        const useQuestion = question;
+        if (!isInputSafe(question)) {
+            const warning = "🚨 Malicious or unsafe content detected:";
+            const maliceMessage: React.ReactNode = <div key={`warn${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{warning}</div>;
+            setResponse(prev => [...prev, maliceMessage]);
+            return;
+        }
+
         setQuestion('');
         const userMessage: React.ReactNode = <div key={`cu${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{question}</div>;
         setResponse(prev => [...prev, userMessage, thinkingMessage]);
@@ -55,7 +67,7 @@ export default function Chatbot() {
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: useQuestion })
+            body: JSON.stringify({ prompt: question })
         }).then(response => response.json()
         ).then(data => {
             const responseText: string = data.tool ? 'Resume downloaded' : data.message;
