@@ -1,10 +1,6 @@
-import data from '@/data/resume.json';
+import { NextResponse } from "next/server";
+import { loadProfile } from "../../services/resumeService" 
 
 export async function GET() {
-  try{
-    return Response.json(data);
-  } catch (err) {
-    console.error("API error:", err);
-    return new Response('Internal Server Error', { status: 500 });
-  }
+    return NextResponse.json(loadProfile());
 }

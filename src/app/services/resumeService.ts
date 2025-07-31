@@ -1,6 +1,11 @@
+import data from "../../data/resume.json";
+
+const PAUSED_FOR_FAMILY = "Paused for family";
+
 export type roleType = "FullTime" | "Volunteer";
 
 export interface Profile {
+    thisWebsite: string,
     languages: string[],
     frameworks: string[],
     dev: string[], 
@@ -41,21 +46,40 @@ export interface Certification {
     year: string
 }
 
-export function loadProfile() : Promise<Profile> {
-
-    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/resume`, { cache: 'no-store' }).then(response => {
-        return response.json();
-    }).then((jsonData) => {
-        return {
-            languages: jsonData.languages,
-            frameworks: jsonData.frameworks,
-            dev: jsonData.dev,
-            infrastructure: jsonData.infrastructure,
-            ai : jsonData.ai,
-            interests : jsonData.interests,
-            education: jsonData.education,
-            roles : jsonData.roles.length <= 0 ? [] : jsonData.roles,
-            certifications: jsonData.certifications
-        };
-    });
+export function loadProfile() : Profile {
+    
+    return data as Profile;
 }
+
+export function formatResume() {
+
+    const roles = data.roles.map(role => {
+        const dates = `${role.startDate} – ${role.endDate}`;
+        const stack = role.stack.join(', ');
+        const achievements = role.achievements.map(a => `- ${a}`).join('\n');
+
+        return `
+        ${role.title} at ${role.companyName} (${dates}) — ${role.city}, ${role.state}
+        Industry: ${role.industry}
+        Stack: ${stack}
+
+        ${role.summary || ''}
+
+        Achievements:
+        ${achievements}
+            `.trim();
+    }).join('\n\n');
+
+    const education = `Education: ${data.education.map(e => {
+        const degreeDetails = e.degree !== '' ? `Earned a ${e.degree}` : PAUSED_FOR_FAMILY;
+        return `Majored in ${e.major} at ${e.school} ${degreeDetails}`;
+    }).join(', ')}`;
+
+    const certifications = `Certifications: ${data.certifications.map(c =>
+        `Earned a ${c.name} from ${c.provider} in ${c.year}`).join(', ')}`;
+
+    const interests = `Interests and hobbies include ${data.interests.join( ", ")}`;
+
+    return `${interests} ${education} ${certifications} ${roles}`;
+}
+

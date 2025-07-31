@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "./chatbot.css";
 import React from "react";
 import DOMPurify from 'dompurify';
+import { ChatResponse } from "@/app/services/chatService";
 
 export default function Chatbot() {
     const [chatOpen, setChatOpen] = useState<boolean>(false);
@@ -47,12 +48,18 @@ export default function Chatbot() {
         return cleaned === input;
     }
 
+    const openResume = () => {
+        const resumeUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/resume.pdf`;
+        window.open(resumeUrl, '_blank');
+    }
+
     const submitQuestion = async () => {
-        if (question === "") {
+        const capturedQuestion = question;
+        if (capturedQuestion === "") {
             return;
         }
 
-        if (!isInputSafe(question)) {
+        if (!isInputSafe(capturedQuestion)) {
             const warning = "🚨 Malicious or unsafe content detected:";
             const maliceMessage: React.ReactNode = <div key={`warn${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{warning}</div>;
             setResponse(prev => [...prev, maliceMessage]);
@@ -60,21 +67,20 @@ export default function Chatbot() {
         }
 
         setQuestion('');
-        const userMessage: React.ReactNode = <div key={`cu${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{question}</div>;
+        const userMessage: React.ReactNode = <div key={`cu${response.length + 1}`} className='chat-bubble-user text-white p-3 rounded-lg max-w-xs ml-auto'>{capturedQuestion}</div>;
         setResponse(prev => [...prev, userMessage, thinkingMessage]);
 
         const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/openai`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: question })
+            body: JSON.stringify({ question: capturedQuestion })
         }).then(response => response.json()
-        ).then(data => {
-            const responseText: string = data.tool ? 'Resume downloaded' : data.message;
+        ).then( (chatResponse : ChatResponse) => {
+            const responseText: string = (chatResponse.tools && chatResponse.tools.length > 0) ? 'Resume downloaded' : chatResponse.response;
             const responseNode: React.ReactNode = <div key={`oair${response.length + 1}`} className='chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>{responseText}</div>;
-            if (data.tool){
-                const resumeUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/resume.pdf`;
-                window.open(resumeUrl, '_blank');
+            if (chatResponse.tools?.includes("OpenResume")) {
+                openResume();
             } 
             
             setResponse(prev =>
