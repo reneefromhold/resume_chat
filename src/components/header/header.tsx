@@ -1,10 +1,6 @@
-
-
-import "./header.css";
-
 export default function Header(){
     return (
-        <div className="gradient-bg text-white py-10">
+        <div className="gradient-bg text-white py-6">
             <div className="container mx-auto px-6 text-center ">
                 <div className="w-32 h-32 bg-white rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-gray-800">
                     RF

@@ -6,10 +6,14 @@ import DOMPurify from 'dompurify';
 import { ChatResponse } from "@/app/services/chatService";
 
 export default function Chatbot() {
-    const [chatOpen, setChatOpen] = useState<boolean>(false);
+    const [chatOpen, setChatOpen] = useState<boolean>(true);
     const [question, setQuestion] = useState<string>("");
     const [response, setResponse] = useState<React.ReactNode[]>([]);
     const endRef = useRef<HTMLDivElement>(null);
+    const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const suggestedSearches = ['What are her total years working with React?', 
+                        'What is this website built with?', 
+                        (!isMobileDevice ? 'Download her resume' : 'Tell me about her work with REST APIs?')];
 
     const thinkingKey: string = `thnk${Date.now()}`;
     const thinkingMessage: React.ReactNode = (
@@ -53,9 +57,9 @@ export default function Chatbot() {
         window.open(resumeUrl, '_blank');
     }
 
-    const submitQuestion = async () => {
-        const capturedQuestion = question;
-        if (capturedQuestion === "") {
+    const submitQuestion = async (suggestion?: string) => {
+        const capturedQuestion = suggestion ?? question;
+        if (capturedQuestion.trim() === "") {
             return;
         }
 
@@ -112,9 +116,18 @@ export default function Chatbot() {
                 </div>
 
                 <div className="p-4 border-t">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                        {response.length <= 4 && suggestedSearches.map(pill => (
+                        <button key={pill} onClick={() => submitQuestion(pill)}
+                            className="text-left px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200"
+                        >{pill}
+                        </button>
+                        ))}
+                    </div>
+
                     <div className="flex space-x-2">
                         <input value={question} onChange={(e) => { setQuestion(e.target.value) }} type="text" placeholder="Type your question..." className="flex-1 border rounded-lg px-3 py-2 text-black bg-white focus:outline-none focus:ring-2 focus:ring-blue-500" onKeyPress={handleChatKeyPress}></input>
-                        <button onClick={submitQuestion} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Send</button>
+                        <button onClick={() => submitQuestion} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Send</button>
                     </div>
                 </div>
             </div>
