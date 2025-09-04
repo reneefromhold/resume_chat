@@ -1,4 +1,4 @@
-import { formatResume, formatResumeFromText, loadProfile } from "./resumeService";
+import { formatResumeFromText, loadProfile } from "./resumeService";
 
 export type ChatTool = 'OpenResume';
 

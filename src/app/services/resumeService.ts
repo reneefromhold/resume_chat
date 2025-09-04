@@ -1,7 +1,7 @@
 import data from "../../data/resume.json";
 import textResume from "../../data/resume";
 
-const PAUSED_FOR_FAMILY = "Paused for family";
+//const PAUSED_FOR_FAMILY = "Paused for family";
 
 export type roleType = "FullTime" | "Volunteer";
 
@@ -51,7 +51,7 @@ export function loadProfile(): Profile {
     return data as Profile;
 }
 
-export function formatResume() {
+/* function formatResume() {
 
     const roles = data.roles.map(role => {
         const dates = `${role.startDate} – ${role.endDate}`;
@@ -81,7 +81,7 @@ export function formatResume() {
     const interests = `Interests and hobbies include ${data.interests.join(", ")}`;
 
     return `${interests} ${education} ${certifications} ${roles}`;
-}
+} */
 
 export function formatResumeFromText() {
     const interests = `Interests and hobbies include ${data.interests.join(", ")}`;
