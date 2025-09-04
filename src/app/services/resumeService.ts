@@ -1,6 +1,7 @@
 import data from "../../data/resume.json";
+import textResume from "../../data/resume";
 
-const PAUSED_FOR_FAMILY = "Paused for family";
+//const PAUSED_FOR_FAMILY = "Paused for family";
 
 export type roleType = "FullTime" | "Volunteer";
 
@@ -8,10 +9,10 @@ export interface Profile {
     thisWebsite: string,
     languages: string[],
     frameworks: string[],
-    dev: string[], 
+    dev: string[],
     infrastructure: string[],
-    ai : string[],
-	interests : string[],
+    ai: string[],
+    interests: string[],
     education: Education[],
     roles: Role[],
     certifications: Certification[]
@@ -28,7 +29,7 @@ export interface Role {
     industry: string,
     stack: string[],
     summary: string,
-    achievements: string[],    
+    achievements: string[],
     roleType: roleType,
     url?: string,
     github?: string
@@ -36,7 +37,7 @@ export interface Role {
 
 export interface Education {
     school: string,
-    major : string,
+    major: string,
     degree: string
 }
 
@@ -46,12 +47,11 @@ export interface Certification {
     year: string
 }
 
-export function loadProfile() : Profile {
-    
+export function loadProfile(): Profile {
     return data as Profile;
 }
 
-export function formatResume() {
+/* function formatResume() {
 
     const roles = data.roles.map(role => {
         const dates = `${role.startDate} – ${role.endDate}`;
@@ -78,8 +78,13 @@ export function formatResume() {
     const certifications = `Certifications: ${data.certifications.map(c =>
         `Earned a ${c.name} from ${c.provider} in ${c.year}`).join(', ')}`;
 
-    const interests = `Interests and hobbies include ${data.interests.join( ", ")}`;
+    const interests = `Interests and hobbies include ${data.interests.join(", ")}`;
 
     return `${interests} ${education} ${certifications} ${roles}`;
+} */
+
+export function formatResumeFromText() {
+    const interests = `Interests and hobbies include ${data.interests.join(", ")}`;
+    return `${textResume} ${interests}`;
 }
 

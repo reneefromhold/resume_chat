@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import "./chatbot.css";
 import React from "react";
 import DOMPurify from 'dompurify';
-import { ChatResponse } from "@/app/services/chatService";
+import { ChatMessage } from "@/app/services/chatService";
 
 export default function Chatbot() {
     const [chatOpen, setChatOpen] = useState<boolean>(true);
     const [question, setQuestion] = useState<string>("");
     const [response, setResponse] = useState<React.ReactNode[]>([]);
+    const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
     const endRef = useRef<HTMLDivElement>(null);
     const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const suggestedSearches = ['What are her total years working with React?', 
@@ -78,14 +79,17 @@ export default function Chatbot() {
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: capturedQuestion })
+            body: JSON.stringify( [...chatHistory, {role: 'user', content: capturedQuestion}] )
         }).then(response => response.json()
-        ).then( (chatResponse : ChatResponse) => {
-            const responseText: string = (chatResponse.tools && chatResponse.tools.length > 0) ? 'Resume downloaded' : chatResponse.response;
+        ).then( (chatResponses : ChatMessage[]) => {
+            const chatResponse = chatResponses[chatResponses.length - 1];
+            const responseText: string = (chatResponse.tools && chatResponse.tools.length > 0) ? 'Resume downloaded' : chatResponse.content;
             const responseNode: React.ReactNode = <div key={`oair${response.length + 1}`} className='chat-bubble-bot text-gray-800 p-3 rounded-lg max-w-xs'>{responseText}</div>;
             if (chatResponse.tools?.includes("OpenResume")) {
                 openResume();
-            } 
+            }
+
+            setChatHistory(chatResponses);
             
             setResponse(prev =>
                 prev.map((node) =>
